@@ -1,0 +1,10 @@
+name: Correzione materiali / Materials correction
+description: Solo contenuti pubblici, senza dati cliente / Public content only, no customer data
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema e riproduzione / Problem and reproduction
+      description: Non includere credenziali, dati personali o report cliente / No secrets or customer reports
+    validations:
+      required: true

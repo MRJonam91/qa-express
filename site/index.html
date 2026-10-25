@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:," />
+  <title>QA Express — QA web e assistenza tecnica | Manoj Rollo</title>
+  <meta name="description" content="QA web per agenzie e piccoli team: un flusso prioritario, report riproducibile, copertura dichiarata. Pilot e assistenza tecnica con Manoj Rollo." />
+  <meta property="og:title" content="QA Express — Un flusso importante, un report riproducibile" />
+  <meta property="og:description" content="Portfolio, esempio illustrativo e checklist. QA web e assistenza tecnica a perimetro fisso." />
+  <style>
+    :root {
+      --bg: #0b0d13;
+      --surface: #131722;
+      --border: #242b3d;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    nav {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--primary); }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #042f1e;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      transition: background 0.15s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.98rem;
+    }
+    .btn:hover { background: var(--primary-dark); color: #fff; }
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      line-height: 1.15;
+      margin-bottom: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-lead {
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+    .sample-report {
+      background: #0f131d;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .bug-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .sev-p0 {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .sev-p1 {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .pricing-box {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .price-tag {
+      font-size: 2.75rem;
+      font-weight: 800;
+      margin: 0.5rem 0;
+    }
+    .price-tag span {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    ul.check-list {
+      list-style: none;
+      margin: 1.25rem 0 1.75rem;
+    }
+    ul.check-list li {
+      margin-bottom: 0.65rem;
+      font-size: 0.96rem;
+    }
+    ul.check-list li::before {
+      content: "✓ ";
+      color: var(--primary);
+      font-weight: 800;
+      margin-right: 0.4rem;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    a { color: #6ee7b7; }
+    a:focus-visible { outline: 3px solid #fbbf24; outline-offset: 5px; }
+    .skip { position: absolute; left: -10000px; }
+    .skip:focus { left: 1rem; top: 1rem; background: #131722; padding: 1rem; z-index: 10; }
+    .hero .btn { margin-bottom: 1rem; }
+    .check-list a { color: #a7f3d0; }
+    @media (max-width: 540px) { nav { gap: 1rem; flex-wrap: wrap; } .hero { padding: 3rem 0; } .pricing-box { padding: 1.2rem; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenuto">Vai al contenuto</a>
+  <div class="wrap">
+    <nav aria-label="Navigazione principale">
+      <div class="logo">QA<span>Express</span> · Manoj Rollo</div>
+      <a href="#contatti" class="btn">Parliamo del tuo flusso</a>
+    </nav>
+    <main id="contenuto">
+      <section class="hero">
+        <div class="badge">QA web per agenzie e piccoli team · Offerta pilota</div>
+        <h1>Verifica un flusso importante.<br/>Consegna al team problemi riproducibili.</h1>
+        <p>Form, registrazione, carrello o checkout di test: concordiamo un percorso e raccogliamo le prove utili per decidere cosa correggere. Ambienti, copertura e limiti sono scritti nel report.</p>
+        <a href="#esempio" class="btn">Guarda la struttura del report</a>
+        <p><a href="https://github.com/MRJonam91/qa-express/blob/main/README.md" lang="en">English: service scope and materials</a></p>
+      </section>
+      <div class="grid-3">
+        <section class="card"><h2>Un percorso concordato</h2><p>Un flusso prioritario, massimo 5 pagine sullo stesso sito. Prima del test definiamo accessi, dati sintetici e azioni consentite.</p></section>
+        <section class="card"><h2>Un report utilizzabile</h2><p>Ambiente, passi, atteso, osservato ed evidenze dei rilievi reali. Priorità motivate da valutare con il tuo team, anche se non emergono anomalie.</p></section>
+        <section class="card"><h2>Copertura esplicita</h2><p>Chromium desktop e viewport mobile 390 px, con osservazioni preliminari su tastiera e accessibilità. L'emulazione non dimostra compatibilità con Safari o dispositivi reali.</p></section>
+      </div>
+      <section class="section" id="esempio">
+        <h2>Come leggiamo un problema</h2>
+        <p class="section-lead"><strong>Esempio illustrativo, non audit cliente.</strong> Questi scenari sono inventati: non esistono misurazioni, video o screenshot allegati.</p>
+        <div class="sample-report">
+          <div class="bug-row"><div><strong>Scenario: il banner copre il pulsante del checkout mobile</strong><p>Il report reale indica ambiente, passi, comportamento atteso e osservato, prova disponibile e impatto funzionale. La priorità si conferma con il cliente.</p></div><span class="sev-p1">ESEMPIO</span></div>
+          <div class="bug-row"><div><strong>Scenario: un form fallisce senza un errore comprensibile</strong><p>Usiamo dati sintetici e un ambiente autorizzato. Distinguere un'ipotesi da un difetto riprodotto aiuta lo sviluppatore a verificare la correzione.</p></div><span class="sev-p1">ESEMPIO</span></div>
+          <p><a href="../examples/report.md">Leggi il report illustrativo IT/EN</a> · <a href="../templates/checklist.md">Scarica la checklist IT/EN</a></p>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="pilot-title">
+        <div class="pricing-box">
+          <div class="badge">Perimetro fisso · Preventivo prima del lavoro</div>
+          <h2 id="pilot-title">QA Express — Pilot</h2>
+          <div class="price-tag">€199 <span>prezzo proposto</span></div>
+          <p>Trattamento fiscale, condizioni della piattaforma, disponibilità e scope si confermano nel preventivo. Consegna proposta entro due giorni lavorativi dalla conferma di accessi e perimetro.</p>
+          <ul class="check-list">
+            <li>Un flusso, massimo 5 pagine, desktop e viewport mobile</li>
+            <li>Report con passi riproducibili e prove dei rilievi osservati</li>
+            <li>Un ricontrollo entro 7 giorni, massimo 30 minuti</li>
+            <li>Limiti e parti non verificate dichiarati anche con zero bug</li>
+          </ul>
+          <p>Fix, pentest, load test, certificazione WCAG/EAA e pagamenti reali esclusi. Nessun numero di bug o aumento delle conversioni garantito.</p>
+          <p><a href="#contatti" class="btn">Definiamo il tuo caso</a></p>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="help-title">
+        <h2 id="help-title">Assistenza tecnica mirata</h2>
+        <p class="section-lead">Un errore Playwright, un workflow n8n o un ambiente AI locale: proposta €79 per una diagnosi fino a 60 minuti e un riepilogo scritto. La soluzione non è garantita; eventuali interventi ulteriori si quotano a parte.</p>
+        <p>Setup personalizzati da €249, dopo brief e collaudo concordato, sull'infrastruttura del cliente. API, hosting, hardware e abbonamenti esclusi. <a href="https://github.com/MRJonam91/OpenAutomationHub">Esplora OpenAutomationHub</a> per il catalogo di workflow con validazione statica.</p>
+      </section>
+      <section class="section" id="contatti">
+        <h2>Partiamo da un obiettivo concreto</h2>
+        <p class="section-lead">Scrivimi quale percorso vuoi verificare, l'ambiente disponibile e la scadenza desiderata. Non inviare credenziali o dati cliente nel primo messaggio.</p>
+        <p><a class="btn" href="mailto:fbxmano@gmail.com?subject=QA%20Express%20-%20richiesta%20di%20perimetro">Scrivi a Manoj Rollo</a></p>
+        <p><a href="https://www.linkedin.com/in/manoj-rollo/">Contatto LinkedIn</a> · <a href="https://manoj.it">Sito personale</a> · <a href="https://github.com/MRJonam91/qa-express">Materiali pubblici su GitHub</a></p>
+        <p>Questa pagina non raccoglie dati e non include analytics o moduli. Il link email apre il tuo client; LinkedIn e il sito sono canali alternativi. Le richieste ricevute vengono gestite sul canale scelto. Se arrivi da un marketplace, segui le sue regole di comunicazione e pagamento.</p>
+      </section>
+    </main>
+    <footer><p>© 2026 Manoj Rollo · QA Express · Verifica tecnica preliminare, senza certificazioni legali o di conformità. <a href="https://github.com/MRJonam91/qa-express/blob/main/LICENSING.md">Licenze e attribuzioni</a>.</p></footer>
+  </div>
+</body>
+</html>
